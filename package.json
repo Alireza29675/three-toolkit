@@ -1,0 +1,27 @@
+{
+  "name": "threetoolbox",
+  "version": "0.1.0",
+  "description": "🏺 Three.js Toolbox for Designers",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "yarn test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alireza29675/ThreeToolbox.git"
+  },
+  "keywords": [
+    "threejs",
+    "webgl",
+    "webgpu",
+    "threetoolbox"
+  ],
+  "authors": [
+    "Alireza Sheikholmolouki <alireza.sheikholmolouki@gmail.com> (https://github.com/Alireza29675)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Alireza29675/ThreeToolbox/issues"
+  },
+  "homepage": "https://github.com/Alireza29675/ThreeToolbox#readme"
+}
