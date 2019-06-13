@@ -2,26 +2,35 @@
   "name": "threetoolbox",
   "version": "0.1.0",
   "description": "🏺 Three.js Toolbox for Designers",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "yarn test"
+    "test": "yarn test",
+    "start": "webpack-dev-server --mode development",
+    "transpile": "babel src -d dist --copy-files",
+    "prepublishOnly": "yarn run transpile",
+    "build": "webpack --mode production",
+    "deploy": "gh-pages -d examples/dist",
+    "publish-demo": "yarn run build && yarn run deploy",
+    "v:patch": "npm version patch --force",
+    "v:minor": "npm version minor --force",
+    "v:major": "npm version major --force"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Alireza29675/ThreeToolbox.git"
-  },
-  "keywords": [
-    "threejs",
-    "webgl",
-    "webgpu",
-    "threetoolbox"
-  ],
+  "repository": "https://github.com/Alireza29675/ThreeToolbox.git",
   "authors": [
     "Alireza Sheikholmolouki <alireza.sheikholmolouki@gmail.com> (https://github.com/Alireza29675)"
   ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Alireza29675/ThreeToolbox/issues"
-  },
-  "homepage": "https://github.com/Alireza29675/ThreeToolbox#readme"
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^2.1.1",
+    "gh-pages": "^2.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.3",
+    "webpack-dev-server": "^3.7.1"
+  }
 }
