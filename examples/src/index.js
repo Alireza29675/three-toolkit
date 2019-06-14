@@ -1,3 +1,8 @@
-import ThreeToolbox from '../../src'
+import { ThreeBasics } from '../../src'
 
-console.log(ThreeToolbox)
+class App extends ThreeBasics {
+
+}
+
+const app = new App()
+app.init(document.querySelector('canvas'))
