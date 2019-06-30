@@ -12,6 +12,7 @@ class ThreeComponent extends Thing {
     object = null
 
     children = []
+    isSync = false
 
     constructor (props = {}) {
         super(props)
@@ -24,8 +25,15 @@ class ThreeComponent extends Thing {
     }
     append (component) {
         if (child instanceof ThreeComponent) {
-            this.add(component.object);
-            this.children.push(component);
+            if (this.isSync) {
+                component.on('load', () => {
+                    this.add(component.object);
+                    this.children.push(component);
+                })
+            } else {
+                this.add(component.object);
+                this.children.push(component);
+            }
         } else {
             console.error(`Only ThreeComponents can be appended to ThreeComponents`)
         }

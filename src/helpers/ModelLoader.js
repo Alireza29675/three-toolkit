@@ -7,7 +7,7 @@ class Model extends Thing {
     isLoaded = false
     start () {
         this.startTime = Date.now()
-        this.emit('started', { at: this.startTime })
+        this.emit('start', { at: this.startTime })
     }
     error () {
         this.emit('error', {
@@ -24,7 +24,7 @@ class Model extends Thing {
         const loadTime = this.endTime - this.startTime
         this.isLoaded = true
         this.object = object
-        this.emit('loaded', { object, at: this.endTime, loadTime })
+        this.emit('load', { object, at: this.endTime, loadTime })
     }
 }
 
@@ -52,3 +52,6 @@ class ModelLoader extends Thing {
     }
 
 }
+
+export { Model }
+export default ModelLoader
