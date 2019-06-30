@@ -1,9 +1,14 @@
-import ThreeComponent from '../vendor/ThreeComponent'
+import SyncThreeComponent from '../vendor/SyncThreeComponent'
 import ModelLoader from '../helpers/ModelLoader'
 
 const loader = new ModelLoader()
 
-class Model extends ThreeComponent {
+class Model extends SyncThreeComponent {
+
+    static propTypes = SyncThreeComponent.schema({
+        url: { name: 'url', type: String, required: true }
+    })
+
     setup () {
         const { url } = this.props
         const model = loader.load(url)

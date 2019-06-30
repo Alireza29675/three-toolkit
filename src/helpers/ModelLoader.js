@@ -44,7 +44,12 @@ class ModelLoader extends Thing {
         if (!loader) console.error(`Couldn't find any loader for .${extension} extension`);
 
         const model = new Loader({ url })
-        loader.load(url, model.load, model.progress, model.error);
+        loader.load(
+            url,
+            (object) => model.load(object),
+            (xhr) => model.progress(xhr),
+            () => model.error()
+        );
         return model;
     }
 

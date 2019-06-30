@@ -1,12 +1,27 @@
 import THREE from '../THREE'
 import { EventEmitter } from 'events';
 
+import Schema from 'schema-js';
 class Thing {
+
+    static propTypes = null;
+    static schema = (schemaObject) => new Schema(schemaObject);
 
     // Passing Three.js as $
     $ = THREE
 
     constructor (props) {
+        const propTypesSchema = this.constructor.propTypes
+        if (propTypesSchema instanceof Schema) {
+            try {
+                propTypesSchema.validate(props)
+            } catch (err) {
+                throw {
+                    message: `Failed to load '${this.constructor.name}' because of invalid props`,
+                    errors: err.errors.map(item => item.stack.split('\n')[0])
+                }
+            }
+        }
         this.props = props
         this.setup()
     }

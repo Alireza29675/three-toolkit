@@ -21,10 +21,11 @@ class ThreeComponent extends Thing {
 
     // Three.js 
     add (object) {
+        // console.log(this.constructor.name, this.object)
         this.object.add(object)
     }
     append (component) {
-        if (child instanceof ThreeComponent) {
+        if (component instanceof ThreeComponent) {
             if (this.isSync) {
                 component.on('load', () => {
                     this.add(component.object);
@@ -40,12 +41,23 @@ class ThreeComponent extends Thing {
     }
     _changes () {
         this.changes()
-        for (let child of this.children) {
+        for (const child of this.children) {
             if (child instanceof ThreeComponent) {
                 child._changes()
             }
         }
     }
+
+    get position () { return this.object.position || {} }
+    get rotation () { return this.object.rotation || {} }
+
+    // position setters and getters
+    set x (value) { this.position.x = value }
+    set y (value) { this.position.y = value }
+    set z (value) { this.position.z = value }
+    get x () { return this.position.x }
+    get y () { return this.position.x }
+    get z () { return this.position.x }
 
     // Overriding methods
     init () {}

@@ -1861,6 +1861,11 @@ cliui@^4.0.0:
     strip-ansi "^4.0.0"
     wrap-ansi "^2.0.0"
 
+clone@^1.0.1:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
+  integrity sha1-2jCcwmPfFZlMaIypAheco8fNfH4=
+
 code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
@@ -1900,6 +1905,14 @@ commander@~2.19.0:
   version "2.19.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
   integrity sha512-6tvAOO+D6OENvRAh524Dh9jcfKTYDQAqvqezbCW82xj5X0pSrcpxtvRKHLG0yBY6SD7PSDrJaj+0AiOcKVd1Xg==
+
+common-errors@^0.4.18:
+  version "0.4.18"
+  resolved "https://registry.yarnpkg.com/common-errors/-/common-errors-0.4.18.tgz#c025e172f4b46ed3c36326b952a2c53286ba96eb"
+  integrity sha1-wCXhcvS0btPDYya5UqLFMoa6lus=
+  dependencies:
+    lodash "= 2.4.1"
+    route-parser "0.0.2"
 
 commondir@^1.0.1:
   version "1.0.1"
@@ -2133,6 +2146,13 @@ cssesc@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
+
+custom-merge@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/custom-merge/-/custom-merge-1.0.0.tgz#17106408267efc9190740bb6329851fef0b5df33"
+  integrity sha1-FxBkCCZ+/JGQdAu2MphR/vC13zM=
+  dependencies:
+    clone "^1.0.1"
 
 cyclist@~0.2.2:
   version "0.2.2"
@@ -3584,6 +3604,11 @@ locate-path@^3.0.0:
     p-locate "^3.0.0"
     path-exists "^3.0.0"
 
+"lodash@= 2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-2.4.1.tgz#5b7723034dda4d262e5a46fb2c58d7cc22f71420"
+  integrity sha1-W3cjA03aTSYuWkb7LFjXzCL3FCA=
+
 lodash@^4.17.11, lodash@^4.17.3, lodash@^4.17.4:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
@@ -4794,6 +4819,11 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
+route-parser@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/route-parser/-/route-parser-0.0.2.tgz#53dbc5e0045e8cfd721209afeddec70f312c78d8"
+  integrity sha1-U9vF4ARejP1yEgmv7d7HDzEseNg=
+
 run-queue@^1.0.0, run-queue@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/run-queue/-/run-queue-1.0.3.tgz#e848396f057d223f24386924618e25694161ec47"
@@ -4822,6 +4852,16 @@ sax@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
+
+schema-js@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/schema-js/-/schema-js-1.1.0.tgz#5195b12ca0d30668a1b849248876dd46a4efd5c9"
+  integrity sha1-UZWxLKDTBmihuEkkiHbdRqTv1ck=
+  dependencies:
+    clone "^1.0.1"
+    common-errors "^0.4.18"
+    custom-merge "^1.0.0"
+    sift "^1.1.0"
 
 schema-utils@^1.0.0:
   version "1.0.0"
@@ -4960,6 +5000,11 @@ shebang-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
   integrity sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM=
+
+sift@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/sift/-/sift-1.1.1.tgz#e61c9c433aecaab1b1713c6bb3f550bebf2346b4"
+  integrity sha1-5hycQzrsqrGxcTxrs/VQvr8jRrQ=
 
 signal-exit@^3.0.0:
   version "3.0.2"
