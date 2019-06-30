@@ -1,5 +1,4 @@
-import * as THREE from 'three'
-
+import THREE from '../THREE'
 import { EventEmitter } from 'events';
 
 class Thing {
