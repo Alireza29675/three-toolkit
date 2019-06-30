@@ -6,11 +6,15 @@ class Scene extends ThreeComponent {
     setup () {
         const { $ } = this;
         const { container } = this.props;
+        const containerIsBody = (container === document.body)
         this.object = new $.Scene()
-        this.camera = new $.PerspectiveCamera(45, 1, 0.1, 1000);
-        this.renderer = new $.WebGLRenderer();
+        this.camera = new $.PerspectiveCamera(45, 1, 0.1, 1000)
+        this.renderer = new $.WebGLRenderer()
         this.add(this.camera);
         container.appendChild(this.renderer.domElement);
+        if (containerIsBody) {
+            window.addEventListener('resize', this.fixSize.bind(this))
+        }
         this.fixSize();
     }
     render () {

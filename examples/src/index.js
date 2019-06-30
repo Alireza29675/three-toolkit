@@ -1,4 +1,4 @@
-import { Scene } from '../../src/ThreeComponent'
+import { Scene } from '../../src'
 
 const scene = new Scene({
     container: document.body

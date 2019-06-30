@@ -1,7 +1,7 @@
 import * as THREE from 'three'
-import { EventEmitter } from 'events';
+import Thing from './Thing';
 
-class ThreeComponent {
+class ThreeComponent extends Thing {
 
     // Passing Three.js as $
     $ = THREE
@@ -14,22 +14,9 @@ class ThreeComponent {
     children = []
 
     constructor (props = {}) {
-        this.props = props
+        super(props)
         this.setup()
         this.init()
-    }
-    
-    // Events method
-    eventEmitter = new EventEmitter();
-
-    emit (label, data) {
-        return this.eventEmitter.emit(label, data)
-    }
-    on (label, data) {
-        return this.eventEmitter.on(label, data)
-    }
-    once (label, data) {
-        return this.eventEmitter.once(label, data)
     }
 
     // Three.js 
@@ -54,8 +41,8 @@ class ThreeComponent {
     }
 
     // Overriding methods
-    init () {}
     setup () {}
+    init () {}
     changes () {}
 }
 
