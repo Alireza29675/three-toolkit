@@ -1,7 +1,7 @@
-import ThreeComponent from './ThreeComponent'
-import Scene from './Scene'
+import Scene from './components/Scene'
+import Model from './components/Model'
 
 export {
-    ThreeComponent,
+    Model,
     Scene
 }

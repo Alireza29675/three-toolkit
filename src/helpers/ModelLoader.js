@@ -1,4 +1,4 @@
-import Thing from "../basics/Thing";
+import Thing from "../vendor/Thing";
 
 class Loader extends Thing {
     startTime = null;
