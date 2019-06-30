@@ -4,6 +4,7 @@ class Thing {
 
     constructor (props) {
         this.props = props
+        this.setup()
     }
 
     // Event system
@@ -18,6 +19,9 @@ class Thing {
     once (label, data) {
         return this.eventEmitter.once(label, data)
     }
+
+    // Overriding methods
+    setup () {}
 }
 
 export default Thing

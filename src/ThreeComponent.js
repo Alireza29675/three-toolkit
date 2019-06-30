@@ -15,7 +15,6 @@ class ThreeComponent extends Thing {
 
     constructor (props = {}) {
         super(props)
-        this.setup()
         this.init()
     }
 
@@ -41,7 +40,6 @@ class ThreeComponent extends Thing {
     }
 
     // Overriding methods
-    setup () {}
     init () {}
     changes () {}
 }
