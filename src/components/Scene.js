@@ -19,6 +19,7 @@ class Scene extends ThreeComponent {
     }
     render () {
         requestAnimationFrame(this._render)
+        this.renderer.render(this.object, this.camera)
         this.time++;
         this._changes();
     }

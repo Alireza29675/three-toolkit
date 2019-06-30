@@ -1,7 +1,7 @@
 import ThreeComponent from '../vendor/ThreeComponent'
 import ModelLoader from '../helpers/ModelLoader'
 
-const loader = ModelLoader()
+const loader = new ModelLoader()
 
 class Model extends ThreeComponent {
     setup () {
