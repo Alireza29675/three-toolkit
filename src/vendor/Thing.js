@@ -1,6 +1,11 @@
+import * as THREE from 'three'
+
 import { EventEmitter } from 'events';
 
 class Thing {
+
+    // Passing Three.js as $
+    $ = THREE
 
     constructor (props) {
         this.props = props

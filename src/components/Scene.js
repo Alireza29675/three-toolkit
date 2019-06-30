@@ -1,4 +1,4 @@
-import ThreeComponent from './ThreeComponent'
+import ThreeComponent from '../vendor/ThreeComponent'
 
 class Scene extends ThreeComponent {
     time = 0;

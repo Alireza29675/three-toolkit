@@ -1,6 +1,6 @@
-import Thing from "../Thing";
+import Thing from "../basics/Thing";
 
-class Model extends Thing {
+class Loader extends Thing {
     startTime = null;
     endTime = null;
     object = null
@@ -30,28 +30,25 @@ class Model extends Thing {
 
 class ModelLoader extends Thing {
 
-    setup () {
-        
-    }
-
     load (url) {
+        const { $ } = this
         const extension = url.substr(url.lastIndexOf('.') + 1).toLowerCase();
 
         let loader = null;
 
         // OBJ Loader
-        if (extension === 'obj') loader = new THREE.OBJLoader()
+        if (extension === 'obj') loader = new $.OBJLoader()
         // JSON Loader
-        else if (extension === 'json') loader = new THREE.ObjectLoader()
+        else if (extension === 'json') loader = new $.ObjectLoader()
 
         if (!loader) console.error(`Couldn't find any loader for .${extension} extension`);
 
-        const model = new Model({ url })
+        const model = new Loader({ url })
         loader.load(url, model.load, model.progress, model.error);
         return model;
     }
 
 }
 
-export { Model }
+export { Loader }
 export default ModelLoader
