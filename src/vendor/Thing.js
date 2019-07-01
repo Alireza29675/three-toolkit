@@ -22,6 +22,8 @@ class Thing {
                 }
             }
         }
+        this.object = null;
+        this.children = [];
         this.props = props
         this.setup()
     }

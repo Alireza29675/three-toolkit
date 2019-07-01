@@ -5,27 +5,25 @@ class ThreeComponent extends Thing {
 
     // Passing Three.js as $
     $ = THREE
-    
-    // Basics
-    geometry = null
-    material = null
-    object = null
-
-    children = []
-    isSync = false
 
     constructor (props = {}) {
         super(props)
+        
+        this.material = this.material || null;
+        this.geometry = this.geometry || null;
+        this.isSync = this.isSync || false;
+
         this.init()
     }
 
     // Three.js 
     add (object) {
-        // console.log(this.constructor.name, this.object)
+        console.log(this.constructor.name, object)
         this.object.add(object)
     }
     append (component) {
         if (component instanceof ThreeComponent) {
+            console.log(this)
             if (this.isSync) {
                 component.on('load', () => {
                     this.add(component.object);

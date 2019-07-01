@@ -1,25 +1,40 @@
 import ThreeComponent from '../vendor/ThreeComponent'
+import Camera from './Camera'
 
 class Scene extends ThreeComponent {
     time = 0;
     _render = this.render.bind(this)
+    _camera = null;
+
     setup () {
         const { $ } = this;
         const { container } = this.props;
         const containerIsBody = (container === document.body)
         this.object = new $.Scene()
-        this.camera = new $.PerspectiveCamera(45, 1, 0.1, 1000)
+        this.camera = new Camera()
+
+        // Making renderer
         this.renderer = new $.WebGLRenderer()
-        this.add(this.camera);
         container.appendChild(this.renderer.domElement);
-        if (containerIsBody) {
-            window.addEventListener('resize', this.fixSize.bind(this))
-        }
+
+        // Sizing and scaling
+        if (containerIsBody) window.addEventListener('resize', this.fixSize.bind(this))
         this.fixSize();
     }
+    
+    set camera (camera) {
+        this._camera = camera;
+        this.append(this._camera);
+    }
+    get camera () {
+        return this._camera;
+    }
+    
     render () {
         requestAnimationFrame(this._render)
-        this.renderer.render(this.object, this.camera)
+        if (this.cameraObject) {
+            this.renderer.render(this.object, this.cameraObject)
+        }
         this.time++;
         this._changes();
     }
@@ -30,8 +45,10 @@ class Scene extends ThreeComponent {
         const H = containerIsBody ? window.innerHeight : container.offsetHeight;
         const ratio = W / H;
         this.renderer.setSize(W, H);
-        this.camera.aspect = ratio;
-        this.camera.updateProjectionMatrix()
+        if (this.cameraObject) {
+            this.cameraObject.aspect = ratio;
+            this.cameraObject.updateProjectionMatrix()
+        }
     }
 }
 
