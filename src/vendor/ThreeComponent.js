@@ -18,12 +18,10 @@ class ThreeComponent extends Thing {
 
     // Three.js 
     add (object) {
-        console.log(this.constructor.name, object)
         this.object.add(object)
     }
     append (component) {
         if (component instanceof ThreeComponent) {
-            console.log(this)
             if (this.isSync) {
                 component.on('load', () => {
                     this.add(component.object);

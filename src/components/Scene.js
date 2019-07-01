@@ -3,8 +3,6 @@ import Camera from './Camera'
 
 class Scene extends ThreeComponent {
     time = 0;
-    _render = this.render.bind(this)
-    _camera = null;
 
     setup () {
         const { $ } = this;
@@ -20,6 +18,7 @@ class Scene extends ThreeComponent {
         // Sizing and scaling
         if (containerIsBody) window.addEventListener('resize', this.fixSize.bind(this))
         this.fixSize();
+        this.render();
     }
     
     set camera (camera) {
@@ -31,13 +30,12 @@ class Scene extends ThreeComponent {
     }
     
     render () {
-        requestAnimationFrame(this._render)
-        if (this.cameraObject) {
-            this.renderer.render(this.object, this.cameraObject)
-        }
+        window.requestAnimationFrame(() => this.render())
+        if (this.camera) this.renderer.render(this.object, this.camera.object)
         this.time++;
         this._changes();
     }
+
     fixSize () {
         const { container } = this.props
         const containerIsBody = (container === document.body)
@@ -45,9 +43,9 @@ class Scene extends ThreeComponent {
         const H = containerIsBody ? window.innerHeight : container.offsetHeight;
         const ratio = W / H;
         this.renderer.setSize(W, H);
-        if (this.cameraObject) {
-            this.cameraObject.aspect = ratio;
-            this.cameraObject.updateProjectionMatrix()
+        if (this.camera) {
+            this.camera.object.aspect = ratio;
+            this.camera.object.updateProjectionMatrix()
         }
     }
 }
