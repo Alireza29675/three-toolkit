@@ -12,7 +12,7 @@ class Box extends ThreeComponent {
     setup () {
         const { $ } = this;
         const { width, height, depth } = this.props;
-        this.geometry = new $.BoxGeometry(depth, width, height);
+        this.geometry = new $.BoxGeometry(width, height, depth);
         this.material = new $.MeshNormalMaterial();
         this.object = new $.Mesh(this.geometry, this.material);
     }
