@@ -1,31 +1,13 @@
-import Toolkit, { Renderer, Scene, Box, createRef } from '../../src'
-class Cube extends Box {
-    componentDidMount () {
-        const { speed } = this.props
-        this.speed = speed || Math.random() / 30
-    }
-    changes () {
-        this.rotation.x += this.speed
-        this.rotation.y += this.speed
-    }
-}
+import Toolkit, { Renderer, Scene, Cube } from '../../src'
 
 class App extends Scene {
-
-    componentDidMount () {
-        const { hello, hi, hi2 } = this.refs
-        hi2.z = 2;
+    changes () {
+        const { cube } = this.refs;
+        cube.rotation.y += 0.01;
     }
-    
     render () {
-        return (
-            <Cube ref="hello">
-                <Cube ref="hi" />
-                <Cube ref="hi2" />
-            </Cube>
-        )
+        return (<Cube ref="cube" />)
     }
-
 }
 
 const app = Renderer.render(App, document.body);

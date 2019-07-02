@@ -5,7 +5,7 @@ import { createRef } from './vendor/ThreeRef'
 import Scene from './components/Scene'
 import Model from './components/Model'
 import Camera from './components/Camera'
-import Box from './components/Box'
+import Cube from './components/Cube'
 
 export default {
     parser: JSXParser,
@@ -19,5 +19,5 @@ export {
     Scene,
     Model,
     Camera,
-    Box
+    Cube
 }
