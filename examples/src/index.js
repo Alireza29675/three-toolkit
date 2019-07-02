@@ -10,4 +10,4 @@ class App extends Scene {
     }
 }
 
-const app = Renderer.render(App, document.body);
+Renderer.render(App, document.body);
