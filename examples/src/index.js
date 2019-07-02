@@ -1,11 +1,20 @@
 import { Scene, Box } from '../../src'
 
-const scene = new Scene({
-    container: document.body
-})
+class B extends Box {
+    changes () {
+        this.rotation.x += 0.02;
+    }
+}
 
-const box = new Box();
-box.rotation.x = 2;
-box.rotation.z = 2;
+class App extends Scene {
+    init () {
+        this.box = new B()
+        this.append(this.box)
+    }
+    changes () {
+        this.box.rotation.y += 0.01
+    }
+}
 
-scene.append(box)
+const scene = new App({ container: document.body })
+scene.start();
