@@ -31,6 +31,7 @@ class Scene extends ThreeComponent {
 
     start () {
         this.shouldUpdateNextFrame = true
+        this.mount();
         this.loop()
     }
 

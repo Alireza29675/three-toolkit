@@ -1,4 +1,4 @@
-import Toolkit, { Renderer, Scene, Box } from '../../src'
+import Toolkit, { Renderer, Scene, Box, createRef } from '../../src'
 class Cube extends Box {
     componentDidMount () {
         const { speed } = this.props
@@ -12,23 +12,17 @@ class Cube extends Box {
 
 class App extends Scene {
 
-    componentWillMount () {
-        this.state = {
-            a: 1,
-            b: 2
-        }
-    }
+    cube1 = createRef()
+    cube2 = createRef()
 
     componentDidMount () {
-        setTimeout(() => {
-            this.setState({ b: 3 })
-        }, 2000)
+        
     }
     
     render () {
         return (
-            <Cube width={this.state.b}>
-                <Cube />
+            <Cube ref={this.cube1}>
+                <Cube ref={this.cube2} />
             </Cube>
         )
     }

@@ -9,10 +9,6 @@ class ThreeComponent extends Thing {
         this.material = this.material || null
         this.geometry = this.geometry || null
         this.isSync = this.isSync || false
-
-        this.componentWillMount()
-        this.mount()
-        this.componentDidMount()
     }
 
     register () {
@@ -20,10 +16,14 @@ class ThreeComponent extends Thing {
     }
 
     mount () {
+        this.componentWillMount()
+
         const tree = this.render()
         if (tree) {
             this.append(tree);
         }
+
+        this.componentDidMount()
     }
     unMount () {
         // TODO: make unMount
@@ -39,10 +39,12 @@ class ThreeComponent extends Thing {
                 component.on('load', () => {
                     this.add(component.object)
                     this.children.push(component)
+                    component.parent = this;
                 })
             } else {
                 this.add(component.object)
                 this.children.push(component)
+                component.parent = this;
             }
         } else {
             console.error(`Only ThreeComponents can be appended to ThreeComponents`)
