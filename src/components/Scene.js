@@ -2,63 +2,63 @@ import ThreeComponent from '../vendor/ThreeComponent'
 import Camera from './Camera'
 
 class Scene extends ThreeComponent {
-    time = 0;
+    time = 0
     shouldUpdateNextFrame = false
 
     setup () {
-        const { $ } = this;
-        const { container } = this.props;
+        const { $ } = this
+        const { container } = this.props
         const containerIsBody = (container === document.body)
         this.object = new $.Scene()
         this.camera = new Camera()
 
         // Making renderer
         this.renderer = new $.WebGLRenderer()
-        container.appendChild(this.renderer.domElement);
+        container.appendChild(this.renderer.domElement)
 
         // Sizing and scaling
         if (containerIsBody) window.addEventListener('resize', this.fixSize.bind(this))
-        this.fixSize();
+        this.fixSize()
     }
-    
+
     set camera (camera) {
-        this._camera = camera;
-        this.append(this._camera);
+        this._camera = camera
+        this.append(this._camera)
     }
     get camera () {
-        return this._camera;
+        return this._camera
     }
 
     start () {
         this.shouldUpdateNextFrame = true
-        this.render();
+        this.loop()
     }
 
     pause () {
         this.shouldUpdateNextFrame = false
     }
     
-    render () {
+    loop () {
         if (this.shouldUpdateNextFrame) {
-            window.requestAnimationFrame(() => this.render())
+            window.requestAnimationFrame(() => this.loop())
         }
         if (this.camera) this.renderer.render(this.object, this.camera.object)
-        this.time++;
-        this._changes();
+        this.time++
+        this._changes()
     }
 
     fixSize () {
         const { container } = this.props
         const containerIsBody = (container === document.body)
-        const W = containerIsBody ? window.innerWidth : container.offsetWidth;
-        const H = containerIsBody ? window.innerHeight : container.offsetHeight;
-        const ratio = W / H;
-        this.renderer.setSize(W, H);
+        const W = containerIsBody ? window.innerWidth : container.offsetWidth
+        const H = containerIsBody ? window.innerHeight : container.offsetHeight
+        const ratio = W / H
+        this.renderer.setSize(W, H)
         if (this.camera) {
-            this.camera.object.aspect = ratio;
+            this.camera.object.aspect = ratio
             this.camera.object.updateProjectionMatrix()
         }
     }
 }
 
-export default Scene;
+export default Scene

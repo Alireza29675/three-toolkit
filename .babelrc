@@ -3,7 +3,9 @@
         "@babel/preset-env"
     ],
     "plugins": [
-        "babel-plugin-transform-jsx",
+        ["@babel/plugin-transform-react-jsx", {
+            "pragma": "Toolkit.parser"
+        }],
         "@babel/plugin-proposal-do-expressions",
         "@babel/plugin-proposal-class-properties"
     ]

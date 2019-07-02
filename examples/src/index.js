@@ -1,4 +1,4 @@
-import { Scene, Box } from '../../src'
+import Toolkit, { Renderer, Scene, Box } from '../../src'
 
 class B extends Box {
     changes () {
@@ -6,26 +6,18 @@ class B extends Box {
     }
 }
 
-class C extends B {
-    changes () {
-        super.changes();
-        this.rotation.y += 0.02;
-    }
-}
-
 class App extends Scene {
     init () {
-        this.box = new C()
-        this.append(this.box)
+
     }
     changes () {
         
     }
+    render () {
+        return (
+            <B></B>
+        )
+    }
 }
 
-console.log(<App>
-    <B>Hello</B>
-</App>)
-
-const scene = new App({ container: document.body })
-scene.start();
+Renderer.render(App, document.body);

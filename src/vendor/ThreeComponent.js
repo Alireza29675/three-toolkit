@@ -9,11 +9,21 @@ class ThreeComponent extends Thing {
     constructor (props = {}) {
         super(props)
         
-        this.material = this.material || null;
-        this.geometry = this.geometry || null;
-        this.isSync = this.isSync || false;
+        this.material = this.material || null
+        this.geometry = this.geometry || null
+        this.isSync = this.isSync || false
 
-        this.init()
+        this.componentWillMount()
+        this.mount()
+        this.componentDidMount()
+    }
+
+    mount () {
+        const tree = this.render()
+        // console.log(tree)
+    }
+    unMount () {
+        // TODO: make unMount
     }
 
     // Three.js 
@@ -24,12 +34,12 @@ class ThreeComponent extends Thing {
         if (component instanceof ThreeComponent) {
             if (this.isSync) {
                 component.on('load', () => {
-                    this.add(component.object);
-                    this.children.push(component);
+                    this.add(component.object)
+                    this.children.push(component)
                 })
             } else {
-                this.add(component.object);
-                this.children.push(component);
+                this.add(component.object)
+                this.children.push(component)
             }
         } else {
             console.error(`Only ThreeComponents can be appended to ThreeComponents`)
@@ -56,8 +66,10 @@ class ThreeComponent extends Thing {
     get z () { return this.position.x }
 
     // Overriding methods
-    init () {}
+    componentDidMount () {}
+    componentWillMount () {}
     changes () {}
+    render () {}
 }
 
 export default ThreeComponent
