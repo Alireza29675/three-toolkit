@@ -15,7 +15,7 @@ class App extends Scene {
     }
     render () {
         return (
-            <B></B>
+            <B />
         )
     }
 }

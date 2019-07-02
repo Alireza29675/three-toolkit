@@ -20,7 +20,9 @@ class ThreeComponent extends Thing {
 
     mount () {
         const tree = this.render()
-        // console.log(tree)
+        if (tree) {
+            this.append(tree);
+        }
     }
     unMount () {
         // TODO: make unMount
