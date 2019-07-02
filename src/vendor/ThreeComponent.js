@@ -6,6 +6,7 @@ class ThreeComponent extends Thing {
     constructor (props = {}) {
         super(props)
         
+        this.refs = {}
         this.material = this.material || null
         this.geometry = this.geometry || null
         this.isSync = this.isSync || false
@@ -20,7 +21,8 @@ class ThreeComponent extends Thing {
 
         const tree = this.render()
         if (tree) {
-            this.append(tree);
+            this.append(tree.element);
+            this.refs = tree.stringRefs;
         }
 
         this.componentDidMount()
