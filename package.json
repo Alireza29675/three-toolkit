@@ -1,7 +1,7 @@
 {
-  "name": "threetoolbox",
+  "name": "three-toolkit",
   "version": "0.1.0",
-  "description": "🏺 Three.js Toolbox for Designers",
+  "description": "🏺 Three.js Toolkit for Designers",
   "main": "dist/index.js",
   "scripts": {
     "test": "yarn test",
@@ -16,7 +16,7 @@
     "v:minor": "npm version minor --force",
     "v:major": "npm version major --force"
   },
-  "repository": "https://github.com/Alireza29675/ThreeToolbox.git",
+  "repository": "https://github.com/Alireza29675/ThreeToolkit.git",
   "authors": [
     "Alireza Sheikholmolouki <alireza.sheikholmolouki@gmail.com> (https://github.com/Alireza29675)"
   ],
