@@ -2,7 +2,6 @@ import ThreeComponent from "../vendor/ThreeComponent";
 import defaultNormalMaterial from '../utils/defaultNormalMaterial'
 
 class Box extends ThreeComponent {
-
     propTypes = new ThreeComponent.schema({
         width: { type: Number, default: 1 },
         height: { type: Number, default: 1 },

@@ -1,5 +1,6 @@
 import THREE from '../THREE'
 import { EventEmitter } from 'events';
+import { register } from './registerAgent'
 
 import Schema from 'schema-js';
 class Thing {
@@ -22,10 +23,19 @@ class Thing {
                 }
             }
         }
+        this.register();
         this.object = null;
         this.children = [];
         this.props = props
         this.setup()
+    }
+
+    register () {
+        this.id = register(this);
+    }
+
+    setState (object) {
+        Object.assign(this.state, object);
     }
 
     // Event system

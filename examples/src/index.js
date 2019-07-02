@@ -1,5 +1,4 @@
 import Toolkit, { Renderer, Scene, Box } from '../../src'
-
 class Cube extends Box {
     componentDidMount () {
         const { speed } = this.props
@@ -12,18 +11,30 @@ class Cube extends Box {
 }
 
 class App extends Scene {
+
+    componentWillMount () {
+        this.state = {
+            a: 1,
+            b: 2
+        }
+    }
+
+    componentDidMount () {
+        setTimeout(() => {
+            this.setState({ b: 3 })
+        }, 2000)
+    }
     
     render () {
         return (
-            <Cube width={3}>
-                <Cube height={3} speed={0.01}>
-                    <Cube width={2} height={2} speed={0.01}></Cube>
-                    <Cube width={2} height={2} speed={-0.01}></Cube>
-                </Cube>
+            <Cube width={this.state.b}>
+                <Cube />
             </Cube>
         )
     }
 
 }
 
-Renderer.render(App, document.body);
+const app = Renderer.render(App, document.body);
+
+console.log(app)

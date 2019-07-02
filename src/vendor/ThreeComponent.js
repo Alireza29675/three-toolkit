@@ -1,10 +1,7 @@
-import * as THREE from 'three'
 import Thing from './Thing';
+import { register } from './registerAgent'
 
 class ThreeComponent extends Thing {
-
-    // Passing Three.js as $
-    $ = THREE
 
     constructor (props = {}) {
         super(props)
@@ -16,6 +13,10 @@ class ThreeComponent extends Thing {
         this.componentWillMount()
         this.mount()
         this.componentDidMount()
+    }
+
+    register () {
+        this.id = register(this, { lastRenderStage: 0 })
     }
 
     mount () {
