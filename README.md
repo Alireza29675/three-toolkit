@@ -1,7 +1,16 @@
 # ThreeToolkit
 Three.js Toolkit for Designers
 
-Simple usage:
+## Installation
+```bash
+yarn add three-toolkit
+```
+or
+```bash
+npm install --save three-toolkit
+```
+
+## Simple usage
 ```javascript
 import Toolkit, {
     Scene,
