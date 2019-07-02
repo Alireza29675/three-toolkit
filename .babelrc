@@ -3,6 +3,7 @@
         "@babel/preset-env"
     ],
     "plugins": [
+        "babel-plugin-transform-jsx",
         "@babel/plugin-proposal-do-expressions",
         "@babel/plugin-proposal-class-properties"
     ]

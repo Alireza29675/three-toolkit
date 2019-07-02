@@ -6,15 +6,26 @@ class B extends Box {
     }
 }
 
+class C extends B {
+    changes () {
+        super.changes();
+        this.rotation.y += 0.02;
+    }
+}
+
 class App extends Scene {
     init () {
-        this.box = new B()
+        this.box = new C()
         this.append(this.box)
     }
     changes () {
-        this.box.rotation.y += 0.01
+        
     }
 }
+
+console.log(<App>
+    <B>Hello</B>
+</App>)
 
 const scene = new App({ container: document.body })
 scene.start();
