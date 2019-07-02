@@ -1,6 +1,6 @@
 {
   "name": "three-toolkit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "🏺 Three.js Toolkit for Designers",
   "main": "dist/index.js",
   "scripts": {
