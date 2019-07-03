@@ -1,4 +1,4 @@
-import THREE from '../THREE'
+import THREE from '../THREE.ts'
 import { EventEmitter } from 'events';
 import { register } from './registerAgent'
 

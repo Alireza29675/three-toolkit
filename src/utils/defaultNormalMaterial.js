@@ -1,4 +1,4 @@
-import THREE from '../THREE'
+import THREE from '../THREE.ts'
 
 const defaultNormalMaterial = new THREE.MeshNormalMaterial();
 
