@@ -3,11 +3,11 @@ import { EventEmitter } from 'events'
 import Schema from 'schema-js'
 import { register } from './registerAgent'
 
-class Thing<S extends object = {}, P extends object = {}> {
+class Thing<P extends object = {}, S extends object = {}> {
 
-    id: string
+    id?: string
     object?: THREE.Object3D
-    children: [] | [Thing]
+    children: [Thing<any, any>?]
     state?: S
     props: P
 
@@ -18,10 +18,14 @@ class Thing<S extends object = {}, P extends object = {}> {
     $ = THREE
 
     constructor (props: P) {
-        this.id = register(this);
+        this.render();
         this.children = [];
         this.props = props
         this.setup()
+    }
+    
+    render () {
+        this.id = register(this);
     }
 
     setState (stateChanges: Partial<S>) {
