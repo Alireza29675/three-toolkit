@@ -1,5 +1,5 @@
 # ThreeToolkit
-Three.js Toolkit for Designers
+🏺 Three.js Toolkit for Designers
 
 > ThreeToolkit is still under development, support ThreeToolkit by putting issues and giving advices
 
