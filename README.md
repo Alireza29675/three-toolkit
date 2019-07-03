@@ -1,6 +1,8 @@
 # ThreeToolkit
 Three.js Toolkit for Designers
 
+> ThreeToolkit is still under development, support ThreeToolkit by putting issues and giving advices
+
 ## Installation
 ```bash
 yarn add three-toolkit
@@ -9,6 +11,19 @@ or
 ```bash
 npm install --save three-toolkit
 ```
+
+## Run current example / Contribute ThreeToolkit
+- Clone the repository
+    ```bash
+    git clone https://github.com/Alireza29675/three-toolkit.git
+    ```
+- Install dependencies and start the examples
+    ```bash
+    cd three-toolkit/
+    yarn install
+    yarn start
+    ```
+- Example will be served at [localhost:3001](http://localhost:3001)
 
 ## Simple usage
 ```javascript
