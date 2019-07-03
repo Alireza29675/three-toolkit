@@ -31,6 +31,7 @@
     "@babel/plugin-transform-typescript": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-typescript": "^7.3.3",
+    "@types/uuid": "^3.4.5",
     "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
     "css-loader": "^2.1.1",

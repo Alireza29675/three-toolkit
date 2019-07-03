@@ -1,12 +1,14 @@
 import uuid from 'uuid/v4'
 
-export const components = {};
+type $ThreeComponent = $FixMe;
 
-export const identify = (id) => {
+export const components: {[key: string]: $ThreeComponent} = {};
+
+export const identify = (id: string): $ThreeComponent => {
     return components[id];
 }
 
-export const register = (component, info) => {
+export const register = (component: $ThreeComponent, info?: object) => {
     if (component.id) throw Error(`Component was registered before`)
     let id
     do { id = uuid() } while (components[id])
