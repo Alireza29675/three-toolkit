@@ -1,16 +1,26 @@
 import ThreeComponent from '../vendor/ThreeComponent'
 import Camera from './Camera'
 
-class Scene extends ThreeComponent {
-    time = 0
-    shouldUpdateNextFrame = false
+interface IProps {
+    container: HTMLElement
+}
+interface IState {}
 
-    setup () {
+class Scene extends ThreeComponent<IProps, IState> {
+
+    object: THREE.Scene
+    _camera?: Camera
+    renderer: THREE.WebGLRenderer
+    time: number = 0
+    shouldUpdateNextFrame: boolean = false
+
+    constructor (props: IProps) {
+        super(props)
         const { $ } = this
         const { container } = this.props
         const containerIsBody = (container === document.body)
         this.object = new $.Scene()
-        this.camera = new Camera()
+        this.camera = new Camera({})
 
         // Making renderer
         this.renderer = new $.WebGLRenderer()
@@ -23,7 +33,7 @@ class Scene extends ThreeComponent {
 
     set camera (camera) {
         this._camera = camera
-        this.append(this._camera)
+        if (this._camera) this.append(this._camera)
     }
     get camera () {
         return this._camera
@@ -43,7 +53,9 @@ class Scene extends ThreeComponent {
         if (this.shouldUpdateNextFrame) {
             window.requestAnimationFrame(() => this.loop())
         }
-        if (this.camera) this.renderer.render(this.object, this.camera.object)
+        if (this.camera && this.object) {
+            this.renderer.render(this.object, this.camera.object)
+        }
         this.time++
         this._changes()
     }

@@ -21,7 +21,6 @@ class Thing<P extends object = {}, S extends object = {}> {
         this.render();
         this.children = [];
         this.props = props
-        this.setup()
     }
     
     render () {
@@ -47,9 +46,6 @@ class Thing<P extends object = {}, S extends object = {}> {
         this.eventEmitter.once(label, data)
         return this;
     }
-
-    // Overriding methods
-    setup () {}
 }
 
 export default Thing

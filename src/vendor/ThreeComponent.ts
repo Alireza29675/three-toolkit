@@ -3,7 +3,7 @@ import Thing from './Thing';
 import { register } from './registerAgent'
 import { TParsedJSX } from './JSXParser';
 
-class ThreeComponent<P extends object = {}, S extends object = {}> extends Thing<P, S> {
+class ThreeComponent<P extends object = $IntentionalAny, S extends object = $IntentionalAny> extends Thing<P, S> {
 
     refs: {[key: string]: ThreeComponent} = {}
     material?: THREE.Material

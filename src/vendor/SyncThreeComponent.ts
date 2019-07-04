@@ -1,6 +1,6 @@
 import ThreeComponent from "./ThreeComponent"
 
-class SyncThreeComponent extends ThreeComponent {
+class SyncThreeComponent<P extends object = {}, S extends object = {}> extends ThreeComponent<P, S> {
     isSync = true
 }
 
