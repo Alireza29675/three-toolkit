@@ -6,8 +6,8 @@
   "scripts": {
     "test": "yarn test",
     "start": "webpack-dev-server --mode development",
-    "transpile": "babel src -d dist --copy-files",
-    "transpile:watch": "babel -w src -d dist --copy-files",
+    "transpile": "babel src -d dist",
+    "transpile:watch": "babel -w src -d dist",
     "prepublishOnly": "yarn run transpile",
     "build": "webpack --mode production",
     "deploy": "gh-pages -d examples/dist",

@@ -8,7 +8,7 @@ interface IProps {
 }
 interface IState {}
 
-class Box extends ThreeComponent<IProps, IState> {
+class Cube extends ThreeComponent<IProps, IState> {
     constructor (props: IProps) {
         super(props)
         const { $ } = this;
@@ -19,4 +19,4 @@ class Box extends ThreeComponent<IProps, IState> {
     }
 }
 
-export default Box
+export default Cube
