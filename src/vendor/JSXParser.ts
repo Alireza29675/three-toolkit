@@ -1,7 +1,14 @@
-export default function (component, props, ...children) {
-  const stringRefs = {};
+import ThreeComponent from "./ThreeComponent"
+
+export type TParsedJSX = {
+  element: ThreeComponent,
+  stringRefs: {[key: string]: ThreeComponent<$IntentionalAny, $IntentionalAny>}
+}
+
+const parser = function (component: $FixMe, props: $FixMe, ...children: $IntentionalAny): TParsedJSX {
+  const stringRefs: {[key: string]: ThreeComponent} = {};
   props = props || {}
-  const element = new component({ ...props, children })
+  const element = new component({ ...props })
   element.mount()
   if(element.props) if (element.props.ref) {
     if ((typeof element.props.ref == 'string') && element.props.ref) {
@@ -17,3 +24,5 @@ export default function (component, props, ...children) {
   }
   return { element, stringRefs };
 }
+
+export default parser

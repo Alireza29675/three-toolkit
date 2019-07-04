@@ -1,6 +1,7 @@
 import THREE from '../THREE'
 import Thing from './Thing';
 import { register } from './registerAgent'
+import { TParsedJSX } from './JSXParser';
 
 class ThreeComponent<P extends object = {}, S extends object = {}> extends Thing<P, S> {
 
@@ -9,6 +10,10 @@ class ThreeComponent<P extends object = {}, S extends object = {}> extends Thing
     geometry?: THREE.Geometry
     isSync: boolean = false
     parent?: ThreeComponent
+
+    constructor (props: P) {
+        super(props)
+    }
 
     register (): void {
         this.id = register(this, { lastRenderStage: 0 })
@@ -80,7 +85,7 @@ class ThreeComponent<P extends object = {}, S extends object = {}> extends Thing
     componentDidMount () {}
     componentWillMount () {}
     changes () {}
-    render () {}
+    render (): TParsedJSX | void {}
 }
 
 export default ThreeComponent
