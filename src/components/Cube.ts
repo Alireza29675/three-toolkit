@@ -9,6 +9,9 @@ interface IProps {
 interface IState {}
 
 class Cube extends ThreeComponent<IProps, IState> {
+
+    object: THREE.Mesh
+
     constructor (props: IProps) {
         super(props)
         const { $ } = this;

@@ -9,10 +9,13 @@ interface IProps {
 interface IState {}
 
 class Model extends SyncThreeComponent<IProps, IState> {
+    object: THREE.Object3D
     constructor (props: IProps) {
         super(props);
+        const { $ } = this;
         const { url } = this.props
         const model = loader.load(url)
+        this.object = new $.Object3D()
         model.on('load', this.onLoad.bind(this));
         model.on('progress', this.onProgress.bind(this))
         model.on('error', this.onError.bind(this))

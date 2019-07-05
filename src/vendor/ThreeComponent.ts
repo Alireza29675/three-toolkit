@@ -3,7 +3,7 @@ import Thing from './Thing';
 import { register } from './registerAgent'
 import { TParsedJSX } from './JSXParser';
 
-class ThreeComponent<P extends object = $IntentionalAny, S extends object = $IntentionalAny> extends Thing<P, S> {
+abstract class ThreeComponent<P extends object = $IntentionalAny, S extends object = $IntentionalAny> extends Thing<P, S> {
 
     refs: {[key: string]: ThreeComponent} = {}
     material?: THREE.Material
@@ -35,7 +35,7 @@ class ThreeComponent<P extends object = $IntentionalAny, S extends object = $Int
     }
 
     add (object: THREE.Object3D) {
-        if (this.object) this.object.add(object)
+        this.object.add(object)
     }
 
     append (component: ThreeComponent) {
@@ -64,12 +64,10 @@ class ThreeComponent<P extends object = $IntentionalAny, S extends object = $Int
         }
     }
 
-    get position (): THREE.Vector3 | null {
-        if (!this.object) return null
+    get position (): THREE.Vector3 {
         return this.object.position;
     }
-    get rotation (): THREE.Euler | null {
-        if (!this.object) return null
+    get rotation (): THREE.Euler {
         return this.object.rotation;
     }
 

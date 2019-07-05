@@ -3,10 +3,10 @@ import { EventEmitter } from 'events'
 import Schema from 'schema-js'
 import { register } from './registerAgent'
 
-class Thing<P extends object = {}, S extends object = {}> {
+abstract class Thing<P extends object = {}, S extends object = {}> {
 
     id?: string
-    object?: THREE.Object3D
+    abstract object: THREE.Object3D
     children: [Thing<any, any>?]
     state?: S
     props: P
