@@ -1,9 +1,10 @@
 import SyncThreeComponent from '../vendor/SyncThreeComponent'
 import ModelLoader from '../helpers/ModelLoader'
+import { IDefaultProps } from '../vendor/ThreeComponent';
 
 const loader = new ModelLoader({})
 
-interface IProps {
+interface IProps extends IDefaultProps {
     url: string
 }
 interface IState {}

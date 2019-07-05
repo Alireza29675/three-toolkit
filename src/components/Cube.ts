@@ -1,7 +1,7 @@
-import ThreeComponent from "../vendor/ThreeComponent";
+import ThreeComponent, { IDefaultProps } from "../vendor/ThreeComponent";
 import defaultNormalMaterial from '../utils/defaultNormalMaterial'
 
-interface IProps {
+interface IProps extends IDefaultProps {
     width?: number
     height?: number
     depth?: number

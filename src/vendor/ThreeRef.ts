@@ -1,4 +1,4 @@
-export interface ThreeRef<T> {
+export interface ThreeRef<T = $IntentionalAny> {
     current: T | null,
     set: (reference: T) => void
 }

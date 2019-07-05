@@ -1,7 +1,7 @@
-import ThreeComponent from '../vendor/ThreeComponent'
+import ThreeComponent, { IDefaultProps } from '../vendor/ThreeComponent'
 import Camera from './Camera'
 
-interface IProps {
+interface IProps extends IDefaultProps {
     container: HTMLElement
 }
 interface IState {}

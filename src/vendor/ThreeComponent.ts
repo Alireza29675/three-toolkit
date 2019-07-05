@@ -2,17 +2,24 @@ import THREE from '../THREE'
 import Thing from './Thing';
 import { register } from './registerAgent'
 import { TParsedJSX } from './JSXParser';
+import { ThreeRef } from './ThreeRef';
 
-abstract class ThreeComponent<P extends object = $IntentionalAny, S extends object = $IntentionalAny> extends Thing<P, S> {
+export interface IDefaultProps {
+    ref?: string | ThreeRef
+}
 
+abstract class ThreeComponent<P extends object = IDefaultProps, S extends object = $IntentionalAny> extends Thing<P, S> {
+
+    props: P & IDefaultProps
     refs: {[key: string]: ThreeComponent} = {}
     material?: THREE.Material
     geometry?: THREE.Geometry
     isSync: boolean = false
     parent?: ThreeComponent
 
-    constructor (props: P) {
+    constructor (props: P & IDefaultProps) {
         super(props)
+        this.props = props
     }
 
     register (): void {

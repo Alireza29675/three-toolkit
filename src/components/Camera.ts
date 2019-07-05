@@ -1,6 +1,6 @@
-import ThreeComponent from "../vendor/ThreeComponent";
+import ThreeComponent, { IDefaultProps } from "../vendor/ThreeComponent";
 
-interface IProps {}
+interface IProps extends IDefaultProps {}
 interface IState {}
 
 class Camera extends ThreeComponent<IProps, IState> {
