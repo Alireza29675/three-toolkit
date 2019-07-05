@@ -4,10 +4,12 @@
     "ignore": ["**/*.d.ts"],
     "presets": [
         "@babel/env",
+        "@babel/react",
         "@babel/typescript"
     ],
     "plugins": [
         ["@babel/plugin-transform-react-jsx", {
+            "isTSX": "true",
             "pragma": "Toolkit.parser"
         }],
         "@babel/plugin-proposal-do-expressions",
